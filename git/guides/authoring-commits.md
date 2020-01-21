@@ -2,7 +2,7 @@
 
 ## User identity
 
-1. Always user your full `name`
+1. Always use your full `name`
 2. For GitLab projects, use your Ackee email at `ackee.cz`
 3. For GitHub projects, prefer to use your personal email
 
@@ -25,7 +25,7 @@ If you want to participate on feature branch of another author, inform them and 
 
 ## Feature branch history
 
-Try to make history in your feature branch a self-explanatory changelog. It will me more pleasant to review.
+Try to make history in your feature branch a self-explanatory changelog. It will will make the review more enjoyable.
 
 Compare reviewing the same feature with this history:
 
