@@ -4,6 +4,8 @@ Compilation of recommendations, guidelines and standards we use at [Ackee](https
 
 ## Contents
 
+- [Git](./git/README.md) - Git conventions
+
 ## License
 
 [MIT](./LICENSE)
