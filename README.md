@@ -5,6 +5,7 @@ Compilation of recommendations, guidelines and standards we use at [Ackee](https
 ## Contents
 
 - [Git](./git/README.md) - Git conventions
+- [Android](./android/README.md) - Android styleguide
 
 ## License
 
