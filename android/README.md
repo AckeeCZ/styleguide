@@ -31,7 +31,7 @@ fun `$NAME$`() {
 ```
 
 ## How to import settings
-* Download `settings.jar` from this repository
+* Download [settings.jar](./settings.jar) from this repository
 * In Android Studio choose at the top menu `File - Import Settings` and choose `settings.jar` from previous step
 * Pick all variants and press OK
 * Restart Android Studio
