@@ -1,8 +1,10 @@
+# Coding
+
 ## Source code
 
 ### Naming above all
 
-The source code you write is inteded for only two audiences
+The source code you write is intended for only two audiences
 
 - other people,
 - compiler/interpreter.
@@ -19,6 +21,28 @@ If it works, there is no need to refactor it. Refactoring a code that is old but
 
 Do you need to add functionality? Compose the code.
 
+### Minimal, conscious, self-documenting
+
+1. Less code is oftentimes better, than more code, if it does not sacrifice readability or comprehension. Smaller codebase is more maintainable and shorter snippets are faster to review and understand.
+2. Avoid using one-liners if it hurts the readability
+
+```js
+// BAD
+const articles = getArticles()
+const filteredArticles = []
+for (const article of articles) {
+    if (isValid(article)) {
+        filteredArticles.push(article)
+    }
+}
+// GOOD
+const filteredArticles = getArticles().filter(isValid)
+```
+
+As seen in the example, limiting local variables and imperative constructs usually leads to more readable code, that does not need comments and is easier to follow.
+
+This practice is sometimes referred to as [💋 KISS](https://en.wikipedia.org/wiki/KISS_principle)
+
 ## Prefer libraries
 
 Always prefer libraries above your code - you transfer the responsibility to the libraries, that usually are well tested
@@ -26,22 +50,21 @@ Always prefer libraries above your code - you transfer the responsibility to the
 Get to know our libs!
 
 - Logging. https://github.com/AckeeCZ/cosmas
+- Configuration. https://github.com/AckeeCZ/configuru
 - User notifications. https://github.com/AckeeCZ/enmail
 - Message queues. https://github.com/AckeeCZ/fuqu
-- Utilities.
-    - General utils. https://github.com/AckeeCZ/desmond
-    - Business service helper. https://github.com/AckeeCZ/crudella
-- MySQL database. https://gitlab.ack.ee/Backend/ackee-node-rdbgw
-- Authentication. https://gitlab.ack.ee/Backend/ackee-node-user-service
-- HTTP Server. https://gitlab.ack.ee/Backend/ackee-node-api-core
+- Utilities. https://lodash.com/ (or FP variant), https://ramdajs.com/
+- MySQL database. https://github.com/AckeeCZ/databless
+- Authentication. https://github.com/AckeeCZ/authist
+- HTTP Server. https://github.com/AckeeCZ/unicore
+- ACL. https://github.com/AckeeCZ/axesor
 
 ## Typescript
 
 1. Don't `export` if you don't need the thing exported, just because you think, you might need it in next commit or distant future.
+2. Prefer `object`, `number` etc. to `Object`, `Number` types. [Reference](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html#general-types)
 
-## Patterns
-
-### [💋 KISS](https://en.wikipedia.org/wiki/KISS_principle)
+### KISS [💋](https://en.wikipedia.org/wiki/KISS_principle)
 #### Needless wrappers
 ```typescript
 // BAD
@@ -49,8 +72,7 @@ const createFoo = ({ fooConfig }: typeof config) => {
     return new Foo(fooConfig);
 };
 const foo = createFoo(safeConfig);
-```
-```typescript
+
 // GOOD
 const foo = new Foo(config.fooConfig);
 ```
@@ -60,16 +82,12 @@ Don't create wrappers when you don't need wrappers. You add structural and type 
 ```typescript
 // BAD
 const flattenFoos = (data: Foo[][]): Foo[] => flatten(data);
-```
-```typescript
+
 // GOOD
 const flattenFoos = flatten; // Just use flatten, you don't need your custom fn
 ```
 Don't create lambdas just passing parameters around.
 
-## Types
-### General types
-Prefer `object`, `number` etc. to `Object`, `Number` types. [Reference](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html#general-types)
 
 ### Enums
 
@@ -80,7 +98,7 @@ Use [`PascalCase`](https://github.com/basarat/typescript-book/blob/master/docs/s
 enum Colors { Red, Blue }
 
 
-ace Brush {
+interface Brush {
     color: Colors // Plural is wrong, brush has a single color
 }
 ```
@@ -113,15 +131,12 @@ Most of the time, `@types` packages are not needed for the consumer of your modu
 However, if you use the types from `@types` package and export them as a part of your module's interface, you have to install the `@types` package into dependencies, so that they are installed for the consumer of your module (`npm i @types...`).
 
 - [Example on SO](https://stackoverflow.com/a/46011417)
-- [Real life example](https://gitlab.ack.ee/Backend/flash-news-retriever/merge_requests/4#note_141868)
 
 ## Node.js
 
 ### Use os.tmpdir() for temp files
 
 Do not write temp dir location by your own, but rather use node's [`os.tmpdir()` function](https://nodejs.org/api/os.html#os_os_tmpdir) as it is a standard cross-platform solution respecting environment variables used for temp folder settings.
-
-- [Real life example](https://gitlab.ack.ee/Backend/flash-news-retriever/merge_requests/4#note_141878)
 
 ### Don't use `console` for logging
 
@@ -139,10 +154,6 @@ Used by many npm modules, colorful logger. Enabled via `DEBUG` env variable. Mai
 
 Ackee's custom-tailored logger based on [`pino`](https://www.npmjs.com/package/cosmas). Can be used for both debugging and logging.
 
-- [Real life example](https://gitlab.ack.ee/Backend/flash-news-retriever/merge_requests/6#note_141719)
-
 ### Don't log static messages
 
-Messages that are always the some (e.g. `Function started`) have very little informational value. Most of the time, you can easily add additional data which will make the log entry more specific (and more useful).
-
-- [Real life example](https://gitlab.ack.ee/Backend/flash-news-retriever/merge_requests/10#note_143550)
+Messages that are always the same (e.g. `Function started`) have very little informational value. Most of the time, you can easily add additional data which will make the log entry more specific (and more useful).
