@@ -15,11 +15,13 @@ It's exactly like when two people from different countries trying to express the
 
 When you call something 'banana', it should be banana and not an orange.
 
-### Learn to love old code
+### Leave your code better than you found it
 
-If it works, there is no need to refactor it. Refactoring a code that is old but checks out can be done over and over and forever.
+Suggested by the [The Boy Scout Rule](https://deviq.com/boy-scout-rule/), if you change some code and you can improve it beyond your minimal required change, you should do so. Every long running project suffers from an increasing technical debt and usually it is not the case that you can focus solely on that. Instead gradually as it appears in the codebase, try to improve it piece by piece.
 
-Do you need to add functionality? Compose the code.
+Mind that it says _better than you found it_, not _different to what you found_. Boy Scout rule is not a tool to rewrite the code you did not write in order to change it the way you would. When unsure always try to advocate what are the changes that the code will benefit from your refactoring (e.g. enclose private property, remove shared state that might cause race conditions, etc)
+
+However if it works and there is nothing you can describe that would improve the code, probably you should keep it as it is to avoid endless refactoring.
 
 ### Minimal, conscious, self-documenting
 
@@ -45,7 +47,7 @@ This practice is sometimes referred to as [💋 KISS](https://en.wikipedia.org/w
 
 ## Prefer libraries
 
-Always prefer libraries above your code - you transfer the responsibility to the libraries, that usually are well tested
+Prefer libraries above your code - you transfer the responsibility to the libraries, that usually are well tested
 
 Get to know our libs!
 
