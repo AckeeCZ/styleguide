@@ -7,7 +7,7 @@ A mind set everyone should have when developing an application in agile. Project
 3. **Anticipate model changes.** Set the ground rules as loose as possible for the business model. If current spec says a car will always have an owner user, don't fall for this lie. Especially the DB constraints have to be as benevolent as possible - we can always change the data validation on the application layer as DB changes are always pain. Besides, we are ready for this if someone tackles with the database data.
 4. **Avoid microoptimization. At all.** "Is it faster to write 3 ifs or one switch?" - nobody cares. If crucial, this part can be optimized later on.
 5. **Avoid premature optimization** - Premature optimization is an altar where code readability is sacrificed.
-6. **Unnecessary generalization.** If you are uncertain you are going to use the outcome, don't do it. It takes a lot of time to do it right. Otherwise it's just a mess. [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) most of the time.
+6. **Unnecessary generalization.** If you are uncertain you are going to use the outcome, don't do it. It takes a lot of time to do it right. Otherwise it's just a mess. [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) most of the time. In agile development this is even more important, because the direction can change very dynamically.
 7. **Use TODOs.** Perfectly fine if there is a missing peace we cannot do or have not all the info to do it right now. Makes it easier to find all these "todo later" stuff.
 8. **Leave space for extension.** It may seem like a great idea to define interface that accepts e.g. just one number but world is never that simple.
 
@@ -15,5 +15,3 @@ Rule of thumb: Implement raw functionality first - expect it works when used as 
 - data validation
 - access control (this might not be true for all cases, but either way make sure to communicate the lack of ACL properly)
 - strict database constraints
-
-Authored by @vlasy

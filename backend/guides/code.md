@@ -55,15 +55,18 @@ Get to know our libs!
 - Configuration. https://github.com/AckeeCZ/configuru
 - User notifications. https://github.com/AckeeCZ/enmail
 - Message queues. https://github.com/AckeeCZ/fuqu
-- Utilities. https://lodash.com/ (or FP variant), https://ramdajs.com/
 - MySQL database. https://github.com/AckeeCZ/databless
 - Authentication. https://github.com/AckeeCZ/authist
 - HTTP Server. https://github.com/AckeeCZ/unicore
 - ACL. https://github.com/AckeeCZ/axesor
 
+First, check if the functionality is not covered by the standard library.
+
+The less experienced programmer, the more important this rule is, because their implementation is usually buggy, takes time and is in unreadable form. To prevent all of these, you should always refer to an existing solution to pass the responsibility to someone else or discuss.
+
 ## Typescript
 
-1. Don't `export` if you don't need the thing exported, just because you think, you might need it in next commit or distant future.
+1. Don't `export` if you don't need the thing exported, just because you think, you might need it in next commit or distant future, although consider exporting complex object arguments, if they allow users to construct arguments beforehand, instead of inferring the type from the function.
 2. Prefer `object`, `number` etc. to `Object`, `Number` types. [Reference](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html#general-types)
 
 ### KISS [💋](https://en.wikipedia.org/wiki/KISS_principle)
@@ -113,7 +116,13 @@ interface Brush {
 }
 ```
 
-### Prefer `type` to `interface` for simple types
+### Use either `type` vs `interface` consciously
+
+1. Type is usually more versatile. You can use it to alias primitives, tuples, complex types and compose types with union and intersection. If you need any of that, use type.
+2. Interfaces have deceleration merging (you can define the same interface twice to add attributes), but you cannot change a declared type. If you need others to extend your types, use interface.
+3. Both can be be implemented by classes, unless the `type` is a union of other types. If you want to stay in the safe zone, use `interface`, which can always be implemented by a class.
+4. If you have no preference, use whatever feels more natural (e.g. function type with `interface` is object with `()` property, which is nothing like you declare a function most of the time in JS. `type` annotation however feels way more natural, because it is very similar to arrow function syntax).
+
 ```typescript
 // BAD
 interface GetPizzas {

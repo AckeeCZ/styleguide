@@ -99,7 +99,7 @@ A commonly used pattern in resource naming are wildcards replaced from the curre
 
         /api/v1/vehicles?userId=me
         
-- we advice agains using these replacements in the request payload
+- we advice against using these replacements in the request payload
         
         ## Bulk create
 
