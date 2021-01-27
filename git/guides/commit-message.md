@@ -31,6 +31,10 @@ Related: #38262
 
 Following the feature branch naming convention, you can use [tracker-hook](https://github.com/grissius/tracker-hook) to mark your commits with an issue tracker number automatically.
 
+### Why reference numbers
+TL;DR: It helps to understand the code when using `git blame` because every commit in the blame has a reference to broader information about the feature. A really extensive description of the reason can be found in [tracker-hook QA](https://github.com/grissius/tracker-hook#qa)
+
+
 ### Why Gitmoji
 
 - Enjoyable, readable and expressive
