@@ -1,0 +1,13 @@
+exceptions:
+  TooGenericExceptionCaught:
+    active: false
+comments:
+  AbsentOrWrongFileLicense:
+    active: false
+formatting:
+  MaximumLineLength:
+    maxLineLength: 150
+style:
+  MaxLineLength:
+    maxLineLength: 150
+
