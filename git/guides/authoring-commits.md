@@ -8,6 +8,25 @@
 
 > ℹ️ You can set your name globally, but leave your email. Then you'll get prompted to provide it for each new project.
 
+### Managing git identities using `includeIf`
+Git makes it easy to manage personal and work identities using the `includeIf` - your identity will be set based on the directory path you are currently located in, so you won't need to set your name and email per project.
+
+How to configure:
+1. Create separate git configs for work `.gitconfig.work` and for personal `.gitconfig.personal`
+2. Add the following to each of them - replace the placeholders with correct values
+   ```
+   [user]
+   name = Your Name
+   email = your@email.com
+   ```
+3. Add the following to your `~/.gitconfig`. Don't forget to replace all the paths with correct values.
+   ```
+   [includeIf "gitdir:~/Dev/github/"]
+   path = ~/.gitconfig.personal
+   [includeIf "gitdir:~/Dev/gitlab/"]
+   path = ~/.gitconfig.work
+   ```
+
 ## Private and public branches
 
 Feature branches are considered private by default, the author of the branch can force push.
