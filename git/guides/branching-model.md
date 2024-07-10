@@ -27,9 +27,11 @@ Use for OSS projects on GitHub or internal projects without environment
   - "pre-production" branch
   - merges only from `development`
   - represents current version of "beta", stable testing version
-- `production`
+- `master`
   - merges only from `stage`
   - represents current production version
+
+> ⚠️ Feature branches should be deleted once related PR/MR is merged (keep the repository clean)
 
 ![](http://www.plantuml.com/plantuml/svg/ZP2x3i8m34NtV8K_e4Y8aG7rCJCpC5cDqqOq3pak_Nr20IbTKDTxJuvrKoT1bjbDAZsiZyZe88semsBz00QdH4MpCCQRrJB2wQXKpiJsDg8NqFIaAKH7NZPvrW-qIHmc8LRgVhYKhyvm9Hu8WW53A3CJD3kOLXKzP7mz-0ER2bemWK4eIHwqGzZz5NORsrgzcS-cychrHIC7FVTYWrSrUPq_-WK0)
 
@@ -38,7 +40,7 @@ Use for OSS projects on GitHub or internal projects without environment
 Assume GitLab flow with:
 
 - `master` -> `development` rename
-- `stage` and `master` environnement branches
+- `stage` and `master` environment branches
 - merging flow `development -> stage -> master`
 
 > 📝 Read more on [GitLab flow](https://about.gitlab.com/blog/2014/09/29/gitlab-flow/)
