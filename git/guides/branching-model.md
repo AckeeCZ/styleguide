@@ -23,7 +23,7 @@ Use for OSS projects on GitHub or internal projects without environment
   - the main development branch (set as project's default branch)
   - merges from feature branches
   - represents current version of the "nightly builds"
-  - if multiple versions are being developed at the same time (mainly on mobile apps) multiple `development` branches may exist with the version suffix, eg. `development-1.2.0`.
+  - if multiple versions are being developed at the same time (mainly on mobile apps) multiple `development` branches may exist with the version suffix corresponding to [semantic versioning](https://semver.org/), eg. `development-1.2.0`.
 - `stage`
   - "pre-production" branch
   - merges only from `development`
