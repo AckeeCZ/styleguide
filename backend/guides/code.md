@@ -246,18 +246,8 @@ Prefer libraries above your code - you transfer the responsibility to the librar
 
 The current list of our preferred tools and libraries is reflected in our [Tech radar](https://radar.thoughtworks.com/?sheetId=https://docs.google.com/spreadsheets/d/11FExRfLBnZCM24c2MMPp8SN7U_VqaknZRHnTsAeDYt4/edit&sheetName=Current).
 
-Get to know our libs!
+Prefer our internal libraries over public libraries.
 
-- Node app setup tool https://github.com/AckeeCZ/create-node-app
-- Configuration https://github.com/AckeeCZ/configuru
-- HTTP Server https://github.com/AckeeCZ/unicore
-- Message queues https://github.com/AckeeCZ/fuqu
-- Caching utils https://github.com/AckeeCZ/kesha
-- Node healthz https://github.com/AckeeCZ/node-healthz
-
-First, check if the functionality is not covered by the standard library.
-
-The less experienced programmer, the more important this rule is, because their implementation is usually buggy, takes time and is in unreadable form. To prevent all of these, you should always refer to an existing solution to pass the responsibility to someone else or discuss.
 
 ## Typescript
 
