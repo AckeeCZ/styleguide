@@ -34,6 +34,3 @@ fun `$NAME$`() {
 * Pick all variants and press OK
 * Restart Android Studio
 * In `Editor - Code Style` should be Ackee scheme.
-
-## Detekt config
-Our app uses [detekt](https://github.com/detekt/detekt) for static analysation of source code. Common configuration is defined in [detekt-config.yml](./detekt-config.yml) file. 
