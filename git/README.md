@@ -8,3 +8,4 @@
 - [🌳 Branching model](./guides/branching-model.md) - GitHub flow / Customized GitFlow
 - [💬 Commit messages](./guides/commit-message.md) - Gitmoji with standard messages
 - [🔤 Branch naming](./guides/branch-naming.md) - `{type}/{issue_id}-{feature_name}`
+- [🏷️ Tagging](./guides/tagging.md) - Semantic versioning with v-prefix
